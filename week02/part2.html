@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Colour choosing game</title>
+  </head>
+
+  <body onload="do_game()">
+    <script>
+      var colors = ["blue","black","orange","red","white","yellow"];
+      // parameter declarations
+      var random_no;
+      var target;
+      var finished = false;
+      var guess_input;
+      var count =0;
+
+      function do_game(){
+        random_no = Math.random()*colors.length;
+        random_no = Math.floor(random_no);
+
+        target = colors[random_no];
+        alert(target);
+
+        while (!finished) {
+          // for debugging purposes
+
+          guess_input = prompt("guess the color i am thinking about...\n\n" +
+                                colors.join());
+          count += 1;
+
+          check_guess(guess_input);
+
+        }
+      }
+
+      var z = false;      // z=false for not found, z=true for found in array
+
+      function check_guess(guess_input){
+        for (var i = 0; i < colors.length; i++) {
+          if (guess_input == colors[i]) {
+            z = true;
+          }
+        }
+        if (z == false) {
+          alert("I don't recognize the input color");
+        }
+
+        else {
+          if(guess_input > target)
+            {alert("alphabetically higer input than me. try again.");}
+
+          else if(guess_input < target)
+            {alert("alphabetically lower than me. try again");}
+
+          else if (target == guess_input){
+            document.body.style.backgroundColor = target ;
+            alert("You are correct.You took total " + count + " tries.");
+
+            finished = true;
+
+          }
+
+        }
+
+
+      } // function end
+
+    </script>
+
+    </script>>
+</html>

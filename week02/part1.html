@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Color guessing game</title>
+</head>
+<body onload="game()">
+
+  <script>
+
+    var colours = [ "blue", "black","green","orange",
+      "red","white","yellow"];
+
+
+    function game(){
+          var gameON = false;
+          var joincolor = colours.join();
+          var len = colours.length;
+          var ran_no = Math.random()*len;
+          ran_no = Math.floor(ran_no);
+          alert(colours[ran_no]);
+          while (!gameON) {
+            var guess = prompt("I am thinking of a colour \n\n" +
+                    joincolor +
+                   "\n\nguess which colour?");
+              if (guess == colours[ran_no]) {
+                gameON = true;
+                alert("You are correct.");
+              }
+
+              else {
+                alert("You are wrong. Try again.");
+              }
+          }
+
+
+    }
+
+  </script>
+
+</body>
+</html>
